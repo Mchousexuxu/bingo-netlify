@@ -23,7 +23,8 @@ WORKDIR $HOME/app
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY --chown=user package*.json $HOME/app/
-
+RUN mkdir -p /home/user/.npm
+RUN chown -R 1000:1001 /home/user/.npm
 RUN npm install
 
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
