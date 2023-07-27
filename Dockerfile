@@ -22,12 +22,12 @@ WORKDIR $HOME/app
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
-COPY --chown=user package*.json $HOME/app
+COPY --chown=user package*.json $HOME/app/
 
 RUN npm install
 
 # Copy the current directory contents into the container at $HOME/app setting the owner to the user
-COPY --chown=user . $HOME/app
+COPY --chown=user . $HOME/app/
 
 RUN npm run build
 
